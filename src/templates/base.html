@@ -1,26 +1,174 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="auto-partial-dark-mode">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TTU BLOGS</title>
-    <!--htmx-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TTU Gossip</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap">
     <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
-    <!--bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/screen.css' %}">
+    <style>
+        :root {
+            --font-family-one: 'Inter', sans-serif;
+            --font-weight-one-light: 300;
+            --font-weight-one-bold: 700;
+            --font-family-two: 'Inter', sans-serif;
+            --font-weight-two-bold: 700;
+            --font-family-three: 'Inter', sans-serif;
+            --font-weight-three-regular: 400;
+            --font-weight-three-medium: 500;
+            --font-weight-three-bold: 700;
+            --letter-spacing: -.01em;
+        }
+    </style>
 </head>
+<body class="home-template">
+    <div class="global-wrap">
+        <div class="global-content">
+            <header class="header-section is-partial-dark">
+                <div class="header-wrap global-padding">
+                    <div class="header-logo">
+                        <a href="/" class="is-logo"><img src="{% static 'images/logo.png' %}" alt="TTU Gossips | where all that happens around Taita Taveta University is">
+                            <p>@ Gossip</p>
+                        </a>
+                    </div>
+                    <div class="header-nav">
+                        <span class="header-search search-open is-mobile" data-ghost-search>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m16.822 18.813 4.798 4.799c.262.248.61.388.972.388.772-.001 1.407-.637 1.407-1.409 0-.361-.139-.709-.387-.971l-4.799-4.797c3.132-4.108 2.822-10.005-.928-13.756l-.007-.007-.278-.278a.6985.6985 0 0 0-.13-.107C13.36-1.017 7.021-.888 3.066 3.067c-4.088 4.089-4.088 10.729 0 14.816 3.752 3.752 9.65 4.063 13.756.93Zm-.965-13.719c2.95 2.953 2.95 7.81 0 10.763-2.953 2.949-7.809 2.949-10.762 0-2.951-2.953-2.951-7.81 0-10.763 2.953-2.95 7.809-2.95 10.762 0Z"/>
+                            </svg>
+                        </span>
+                        <input id="toggle" class="header-checkbox" type="checkbox">
+                        <label class="header-toggle" for="toggle">
+                            <span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </span>
+                        </label>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="/story/" hx-get="/story/" hx-target="#main-content" hx-swap="innerHTML">Write your story</a>
+                                </li>
+                                <li>
+                                    <a href="#" hx-get="/stories/" hx-target="#main-content" hx-swap="innerHTML">Stories</a>
+                                </li>
+                                <li>
+                                    <a href="#" hx-get="/opinions/" hx-target="#main-content" hx-swap="innerHTML">Opinions</a>
+                                </li>
+                                <li class="is-dropdown">
+                                    <span>
+                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.974 18.908.019.002.025.001c.085 0 .166-.034.226-.094L23.906 7.155A.32.32 0 0 0 24 6.928c0-.085-.034-.166-.094-.227l-1.519-1.518a.3217.3217 0 0 0-.454 0l-9.94 9.94-9.927-9.926a.3218.3218 0 0 0-.227-.094c-.085 0-.167.034-.227.094L.094 6.716a.3217.3217 0 0 0 0 .454l11.647 11.647c.06.06.142.094.227.094l.006-.003Z"/>
+                                        </svg>
+                                    </span>
+                                    <ul>
+                                        <li><a href="#" hx-get="/surveys/" hx-target="#main-content" hx-swap="innerHTML">Surveys</a></li>
+                                        <li><a href="#" hx-get="/events/" hx-target="#main-content" hx-swap="innerHTML">Events Corner</a></li>
+                                    </ul>
+                                </li>
+                                <li class="header-search search-open is-desktop global-button" data-ghost-search>
+                                    <span>
+                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m16.822 18.813 4.798 4.799c.262.248.61.388.972.388.772-.001 1.407-.637 1.407-1.409 0-.361-.139-.709-.387-.971l-4.799-4.797c3.132-4.108 2.822-10.005-.928-13.756l-.007-.007-.278-.278a.6985.6985 0 0 0-.13-.107C13.36-1.017 7.021-.888 3.066 3.067c-4.088 4.089-4.088 10.729 0 14.816 3.752 3.752 9.65 4.063 13.756.93Zm-.965-13.719c2.95 2.953 2.95 7.81 0 10.763-2.953 2.949-7.809 2.949-10.762 0-2.951-2.953-2.951-7.81 0-10.763 2.953-2.95 7.809-2.95 10.762 0Z"/>
+                                        </svg>
+                                        Search
+                                    </span>
+                                </li>
+                                <li class="signup">
+                                    <a href="#" class="global-button">Join</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <main class="global-main">
+                <div id="main-content">
+                    {% block main %}
+
+                    {% endblock %}
+                </main>
+				<footer class="footer-section global-footer is-partial-dark">
+	<div class="footer-wrap global-padding">
+		<div class="footer-subscribe">
+<h3 class="global-title">Subscribe to <span>new posts</span></h3>
+	<div class="subscribe-section">
+		<div class="subscribe-wrap">
+			<form data-members-form="subscribe" class="subscribe-form" data-members-autoredirect="false">
+				<input data-members-email type="email" placeholder="Your email address" aria-label="Your email address" required>
+				<button class="global-button" type="submit">Subscribe</button>
+			</form>			
+		</div>
+	</div>
+</div>
+		<div class="footer-container">
+			<div class="footer-content">
+				<div class="footer-logo">
+					<a href="#" class="is-logo"><img src="{% static 'images/logo.png' %}" alt="TTU Gossip"></a>
+				</div>
+				<p class="footer-description">Your microscopy team into the world inside Taita Taveta University</p>
+			</div>
+			<div class="footer-nav">
+				<div class="footer-nav-column is-social">
+					<small>Social</small>
+					<ul>
+						<li><a href="#"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/></svg>Facebook</a></li>
+						<li><a href="#"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>Twitter</a></li>
+						
+
+					</ul>
+				</div>
+				
 
 
-<body>
-    {% include "components/navbar.html" %}
-    <div id="main-content">
 
-    {%block main%}
 
-    {%endblock%}    
-    </div>
-    {% include "components/footer.html" %}
+<div class="footer-nav-column">
+	<small>Links</small>
+	<ul>
+		<li><a href="#/search">Search</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Surveys</a></li>
+		<li><a href="#">Stories</a></li>
+		<li><a href="#">Data &amp; privacy</a></li>
+	</ul>
+</div>
+
+<div class="footer-nav-column">
+	<small>Links</small>
+	<ul>
+		<li><a href="#">Write your story</a></li>
+		<li><a href="#">Events Corner</a></li>
+	</ul>
+</div>
+
+
+			</div>
+			<div class="footer-copyright">
+				&copy; <a href="https://questionmark.lgbt">TTU Gossip | Stories around TTU.</a> 2024.
+				Published with <a href="https://github.com/ayubsoft254" target="_blank" rel="noopener noreferrer">Ayub</a> and <a href="https://github.com/DOOLB-lab" target="_blank" rel="noopener">Peterson</a>.
+			</div>
+		</div>
+	</div>
+</footer>			</div>
+		</div>
+		<div id="notifications" class="global-notification">
+	
+</div>
+				<script src="/assets/js/global.js?v=c9e4937ad8"></script>
+		<script src="/assets/js/index.js?v=c9e4937ad8"></script>	
+
+		<script src="https://unpkg.com/@tryghost/content-api@1.3.4/umd/content-api.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ghost-search@1.1.0/dist/ghost-search.min.js" integrity="sha256-yNPbNNfIwEJkDLzw2jUIQwqvwqjDIgc9rupcm4uqFqI=" crossorigin="anonymous"></script>
+
+<script defer data-domain="questionmark.lgbt" src="https://analytics.rakun.ie/js/plausible.js"></script>
 </body>
 </html>
