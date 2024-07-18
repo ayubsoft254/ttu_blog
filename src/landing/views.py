@@ -4,5 +4,5 @@ from django.shortcuts import render
 def home_view(request):
     return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about.html')
+def write_story(request):
+    return render(request, 'write_story.html')
