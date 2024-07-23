@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home_view, stories, k_pop_queerbating, open_relationships, open_relationships_101
+from .views import home_view, stories, k_pop_queerbating, open_relationships, open_relationships_101, tag_stories
 from posts.views import story, opinion
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path('tag/open-relationships/', open_relationships, name='open_relationships'),
     path('open-relationships-101/', open_relationships_101, name='open_relationships_101'),
     path('story/', story, name='story'),
-    path('opinions/', opinion, name='opinions')
+    path('opinions/', opinion, name='opinions'),
+    path('tag/stories/', tag_stories, name='tag_stories')
 ]

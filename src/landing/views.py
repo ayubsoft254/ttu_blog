@@ -21,3 +21,6 @@ def opinion(request):
 
 def open_relationships_101(request):
     return render(request, 'open_relationships_101.html')
+
+def tag_stories(request):
+    return render(request, 'tag_stories.html')
