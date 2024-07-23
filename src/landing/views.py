@@ -13,9 +13,11 @@ def k_pop_queerbating(request):
 def open_relationships(request):
     return render(request, 'open_relationships.html')
 
-def story(request):
-    return render(request, 'story.html')
+def stories(request):
+    return render(request, 'stories.html')
 
 def opinion(request):
     return render(request, 'opinion.html')
 
+def open_relationships_101(request):
+    return render(request, 'open_relationships_101.html')
