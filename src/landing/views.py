@@ -24,3 +24,18 @@ def open_relationships_101(request):
 
 def tag_stories(request):
     return render(request, 'tag_stories.html')
+
+def author_stamos(request):
+    return render(request, 'author_stamos.html')
+
+def author_ilya(request):
+    return render(request, 'author_ilya.html')
+
+def author_menenaba(request):
+    return render(request, 'author_menenaba.html')
+
+def author_anonymous(request):
+    return render(request, 'author_anonymous.html')
+
+def author_questionmike(request):
+    return render(request, 'author_questionmike.html')
