@@ -5,7 +5,7 @@
     <div class="archive-section is-partial-dark">
         <h1 class="archive-title global-title is-tag">Story<span>34</span></h1>
         <p class="archive-excerpt global-excerpt">
-            We don&#x27;t create a lot of opportunities in our lives to share the things that shape us. The stories from the anonymous contributors below are the proof.
+            We don't create a lot of opportunities in our lives to share the things that shape us. The stories from the anonymous contributors below are the proof.
         </p>
     </div>
 
@@ -17,22 +17,22 @@
         </div>
 
         <div class="loop-wrap">
-            <!-- Display only one article from the is-loop class -->
+            {% for story in stories %}
             <article class="item is-loop is-image">
                 <div class="item-image global-image global-image-orientation global-radius">
-                    <a href="/perfect-date-in-ukraine/" class="global-link" aria-label="Perfect Date In Ukraine"></a>
-                    <img srcset="/content/images/size/w300/2024/03/2.png 300w, 
-                        /content/images/size/w600/2024/03/2.png 600w,
-                        /content/images/size/w1200/2024/03/2.png 1200w"
-                        sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px"
-                        src="/content/images/size/w1200/2024/03/2.png"
-                        loading="lazy"
-                        alt="">
+                    <a href="/" class="global-link" aria-label="{{ story.title }}"></a>
+                    <img srcset="{{ story.image.url }} 300w, 
+                                {{ story.image.url }} 600w,
+                                {{ story.image.url }} 1200w"
+                         sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px"
+                         src="{{ story.image.url }}"
+                         loading="lazy"
+                         alt="{{ story.title }}">
                     <div class="item-authors global-authors">
                         <div>
                             <div class="item-author global-item-author is-image global-image">
-                                <a href="/author/ilya/" class="global-link" title="Ilya Kharkow"></a>
-                                <img src="/content/images/size/w300/2024/03/Screenshot-2024-03-05-at-16.19.52.png" loading="lazy" alt="Ilya Kharkow">
+                                <a href="#" class="global-link" title="{{ story.author }}"></a>
+                                <img src="{% static 'path/to/default-author-image.png' %}" loading="lazy" alt="{{ story.author }}">
                             </div>
                         </div>
                     </div>
@@ -41,18 +41,17 @@
                     <div class="item-tags global-tags">
                         <a href="/tag/stories/">Story</a><span></span>
                     </div>
-                    <h2 class="item-title"><a href="/perfect-date-in-ukraine/">lorem ipsum</a></h2>
+                    <h2 class="item-title"><a href="/">{{ story.title }}</a></h2>
                     <p class="item-excerpt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa veniam, dolorem dignissimos optio tempore voluptatum corporis aperiam corrupti sunt eveniet quisquam excepturi provident modi? Ratione possimus ullam doloremque assumenda numquam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio porro iusto consequatur ea architecto molestias recusandae. Quidem, voluptatum voluptates. Quis maxime, officia cupiditate ducimus laudantium quidem fuga saepe non incidunt.
+                        {{ story.excerpt }}
                     </p>
                 </div>
             </article>
+            {% endfor %}
         </div>
     </div>
 
     <div class="pagination-section">
         <a href="/tag/stories/page/2/" aria-label="Load more"></a>
-        
     </div>
 </main>

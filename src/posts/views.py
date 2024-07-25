@@ -2,14 +2,14 @@ from django.shortcuts import render
 from .models import Opinion, Story
 
 def opinion(request):
-    opinions = Opinion.objects.all().order_by('-date_posted')[:6]
+    opinions = Opinion.objects.all().order_by('-created_at')[:6]
     context = {
         'opinions': opinions
     }
     return render(request, 'opinions.html', context)
 
 def story(request):
-    stories = Story.objects.all().order_by('-date_posted')[:6]
+    stories = Story.objects.all().order_by('-created_at')[:6]
     context = {
         'stories': stories
     }
