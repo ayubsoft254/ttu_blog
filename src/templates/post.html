@@ -1,104 +1,52 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/screen.css' %}">
 
-<div class="featured-wrap">
-    <!-- Display one featured article -->
-    <article class="item is-featured is-small is-image">
-        <div class="item-image global-image global-image-orientation global-radius is-square">
-            <a href="/open-relationships-101/" class="global-link" aria-label="Open Relationships 101"></a>
-            <img srcset="/content/images/size/w300/2021/08/Open-Relationships-101@2x.png 300w, 
-                /content/images/size/w600/2021/08/Open-Relationships-101@2x.png 600w,
-                /content/images/size/w1200/2021/08/Open-Relationships-101@2x.png 1200w"
-                sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px"
-                src="{% static '' %}"
-                loading="lazy"
-                alt="">
-            <div class="item-authors global-authors">
-                <div>
-                    <div class="item-author global-item-author is-image global-image">
-                        <a href="/" class="global-link" title="author"></a>
-                        <img src="{% static '' %}" loading="lazy" alt="author">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item-content">
-            <div class="item-tags global-tags">
-                <a href="/tag/stories/">Story</a><span><a href="/tag/open-relationships/">Strory 1</a></span>
-            </div>
-            <h2 class="item-title"><a href="/open-relationships-101/">story 101</a></h2>
-            <p class="item-excerpt">
-                ................................
-                
-                ...................................
-                .............................................................................................................
-            </p>
-        </div>
-    </article>
-</div>
-
-<div class="loop-section global-padding">
-    <div class="loop-subtitle">
-        <small class="loop-subtitle-title global-title">
-            See what we’ve <br><span>written lately</span></small>
-        <div class="global-authors option-1-2-3">
-            <div>
-                <div class="global-item-author is-image global-image">
-                    <a href="/author/questionmike/" class="global-link" title="Mike Questionmark"></a>
-                    <img src="/content/images/size/w300/2021/04/elska-dublin-p4tb-Mike-M-85@2x.jpg" loading="lazy" alt="Mike Questionmark">
-                </div>
-                <div class="global-item-author">
-                    <a href="/author/anonymous/" class="global-link" title="Anonymous"></a>
-                    <span>Anonymous</span>
-                </div>
-                <div class="global-item-author">
-                    <a href="/author/menenaba/" class="global-link" title="Menenaba"></a>
-                    <span>Menenaba</span>
-                </div>
-                <div class="global-item-author is-image global-image">
-                    <a href="/author/ilya/" class="global-link" title="Ilya Kharkow"></a>
-                    <img src="/content/images/size/w300/2024/03/Screenshot-2024-03-05-at-16.19.52.png" loading="lazy" alt="Ilya Kharkow">
-                </div>
-                <div class="global-item-author is-image global-image">
-                    <a href="/author/stamos/" class="global-link" title="Stamos"></a>
-                    <img src="/content/images/size/w300/2023/01/SAM_0091.JPG" loading="lazy" alt="Stamos">
-                </div>
-            </div>
-            <small>Meet our author</small>
-            <small>Meet our authors</small>
-            <small>Meet our top authors</small>
-        </div>
-    </div>
-    <div class="loop-wrap">
-        <!-- Display one loop article -->
-        <article class="item is-loop is-image">
-            <div class="item-image global-image global-image-orientation global-radius">
-                <a href="/perfect-date-in-ukraine/" class="global-link" aria-label="Perfect Date In Ukraine"></a>
-                <img srcset="/content/images/size/w300/2024/03/2.png 300w, 
-                    /content/images/size/w600/2024/03/2.png 600w,
-                    /content/images/size/w1200/2024/03/2.png 1200w"
-                    sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px"
-                    src="/content/images/size/w1200/2024/03/2.png"
-                    loading="lazy"
-                    alt="">
-                <div class="item-authors global-authors">
-                    <div>
-                        <div class="item-author global-item-author is-image global-image">
-                            <a href="/author/ilya/" class="global-link" title="Ilya Kharkow"></a>
-                            <img src="/content/images/size/w300/2024/03/Screenshot-2024-03-05-at-16.19.52.png" loading="lazy" alt="Ilya Kharkow">
+<main class="global-main">
+    <article class="post-section">
+        <div class="post-header is-partial-dark">
+            <div class="post-header-wrap global-padding">
+                <div class="post-header-container">
+                    <div class="post-header-content">
+                        <div>
+                            <div class="post-tags global-tags"></div>
+                            <h1 class="post-title global-title">About Us</h1>
                         </div>
                     </div>
+                    <div class="post-header-image">
+                        <figure>
+                            <div class="global-image global-image-orientation global-radius is-square">
+                                <img srcset="{% static 'images/about.png' %}"
+                                     sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px"
+                                     src="{% static 'images/about.png' %}"
+                                     alt="About">
+                            </div>
+                        </figure>
+                    </div>
                 </div>
             </div>
-            <div class="item-content">
-                <div class="item-tags global-tags">
-                    <a href="/tag/stories/">Story</a><span></span>
-                </div>
-                <h2 class="item-title"><a href="/perfect-date-in-ukraine/">.........................</a></h2>
-                <p class="item-excerpt">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sed mollitia sit earum praesentium maiores dolorum, dolores tempore quidem rerum iusto nulla esse iste? Similique sunt ducimus ipsam voluptatibus earum.
-                </p>
-            </div>
-        </article>
-    </div>
-</div>
+        </div>
+        <div class="post-content global-padding">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+            <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <h2 id="why">Why</h2>
+            <p>Curabitur suscipit suscipit tellus. Nulla ac justo vel felis fermentum ultrices eget in libero. Fusce vehicula vel sapien non tincidunt.</p>
+            <p>Quisque eget ligula a nulla pretium dapibus. Proin mollis velit ut orci varius, a posuere libero fermentum.</p>
+            <ul>
+                <li>Nullam tristique eros ut lorem bibendum, id scelerisque urna commodo.</li>
+                <li>Integer laoreet dolor sed ante consequat, in convallis nisi tristique.</li>
+                <li>Vestibulum ac efficitur purus. Nullam congue nibh non ultricies facilisis.</li>
+                <li>Donec vitae ex nec augue scelerisque faucibus.</li>
+            </ul>
+            <p>Curabitur id purus non magna tincidunt pharetra vel ac magna.</p>
+            <h2 id="how">How</h2>
+            <p><strong>Events</strong>  Vivamus quis urna nec urna imperdiet posuere vel non nunc.</p>
+            <p><strong>Stories</strong> are crafted to inspire and entertain. Sed ultricies metus vel est venenatis tempus.</p>
+            <p><strong>Opinions</strong>. Donec tincidunt ligula in nibh vehicula, ac euismod libero auctor. Quisque euismod purus a urna elementum pharetra.</p>
+            <h2 id="who">Who</h2>
+            <p>Connect with us.<br>
+                <a href="#">Twitter</a> – <a href="#">LinkedIn</a> – <a href="#">Instagram</a> – <a href="#">Upcoming</a></p>
+            <p><strong>Stay tuned for our upcoming projects and initiatives.</strong> Sign up to stay connected and informed.</p>
+        </div>
+    </article>
+</main>
