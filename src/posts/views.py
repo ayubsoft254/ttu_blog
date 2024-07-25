@@ -6,4 +6,3 @@ def opinion(request):
 
 def story(request):
     return render(request, 'stories.html')
-
