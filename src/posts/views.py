@@ -1,14 +1,19 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-from .models import Opinion, Story
-=======
 from django.shortcuts import render, redirect
 from .models import Opinion, Story, Comment, Like
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
->>>>>>> d6968ac (Modified Story model to include comments and likes relationships and defined the views and form)
+
+from django.shortcuts import render, redirect
+from .models import Opinion, Story, Comment, Like
+from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 def opinion(request):
+    opinions = Opinion.objects.all().order_by('-date_posted')[:6]
+    context = {
+        'opinions': opinions
+    }
+    return render(request, 'opinions.html', context)
     opinions = Opinion.objects.all().order_by('-date_posted')[:6]
     context = {
         'opinions': opinions
@@ -21,8 +26,6 @@ def story(request):
         'stories': stories
     }
     return render(request, 'stories.html', context)
-<<<<<<< HEAD
-=======
 
 def story_detail(request, pk):
     story = Story.objects.get(pk=pk)
@@ -54,4 +57,3 @@ def story_detail(request, pk):
         'liked': liked,
     }
     return render(request, 'story_detail.html', context)
->>>>>>> d6968ac (Modified Story model to include comments and likes relationships and defined the views and form)
