@@ -74,8 +74,4 @@ class Attendance(models.Model):
             raise ValidationError('Either a registered user or name and email of an unregistered user must be provided.')
 
     def __str__(self):
-<<<<<<< HEAD
         return f"Attendance for {self.event} by {'registered user' if self.user else self.name}"
-=======
-        return f"Attendance for {self.event} by {'registered user' if self.user else self.name}"
->>>>>>> d6968ac80f4093cd0fe50aaed5f9555c6bed6db8
