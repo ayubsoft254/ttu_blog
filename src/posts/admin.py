@@ -9,3 +9,4 @@ from .models import Story, Comment, Opinion, Like
 admin.site.register(Story)
 admin.site.register(Opinion)
 admin.site.register(Like)
+admin.site.register(Comment)
