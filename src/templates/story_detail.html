@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ story.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/screen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/story_details.css' %}">
+</head>
+<body>
+    {% include 'includes/navbar.html' %}
+<main>
+    <h1>{{ story.title }}</h1>
+    <img src="{{ story.image.url }}" alt="{{ story.title }}">
+    <p>{{ story.content }}</p>
+    <p><strong>Author:</strong> {{ story.author }}</p>
+    <p><strong>Published on:</strong> {{ story.created_at }}</p>
+
+    <!-- Like button -->
+    <form method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" name="like_submit">
+            {% if liked %} Unlike {% else %} Like {% endif %}
+        </button>
+    </form>
+    
+    <h2>Comments</h2>
+    <!-- Comment list -->
+    <div class="comments">
+        {% for comment in comments %}
+            <div class="comment">
+                <strong>{{ comment.author.username }}</strong>:
+                <p>{{ comment.content }}</p>
+                <p><small>{{ comment.date_posted }}</small></p>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Add Comment Link -->
+    <h3><a href="#" id="add-comment-link">Add a comment</a></h3>
+    
+    <!-- Comment form -->
+    <div id="comment-form" style="display: none;">
+        <form method="post" class="styled-form">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" name="comment_submit">Post Comment</button>
+        </form>
+    </div>    
+</main>
+{% include 'includes/footer.html' %}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addCommentLink = document.getElementById('add-comment-link');
+        const commentForm = document.getElementById('comment-form');
+        const textarea = document.querySelector('textarea[name="comment"]');
+    
+        addCommentLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            commentForm.style.display = 'block';
+            addCommentLink.style.display = 'none';
+        });
+    
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    });
+    </script>
+</body>
+</html>

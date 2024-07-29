@@ -41,7 +41,7 @@
                     <div class="item-tags global-tags">
                         <a href="/tag/stories/">Story</a><span></span>
                     </div>
-                    <h2 class="item-title"><a href="/">{{ story.title }}</a></h2>
+                    <h2 class="item-title"><a href="{% url 'story_detail' story.pk %}">{{ story.title }}</a></h2>
                     <p class="item-excerpt">
                         {{ story.excerpt }}
                     </p>
